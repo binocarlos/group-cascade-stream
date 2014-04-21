@@ -17,8 +17,6 @@ var factory = module.exports = function(opts, idfn, streamfn){
 		}
 		if(!streams[id]){
 			streams[id] = streamfn(id)
-			console.log('make stream: ' + id);
-
 			if(streams[id]){
 				add(streams[id])
 			}
