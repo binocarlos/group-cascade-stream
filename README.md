@@ -24,8 +24,9 @@ var coeffs = {
 function createLetterStream(letter){
 	var coeff = coeffs[letter]
 	return through.obj(function(chunk, enc, cb){
-		this.push(chunk * coeff)
-		cb()
+		var num = parseFloat(chunk.replace(/\D/g, ''))
+    this.push(num * coeff)
+    cb()
 	})
 }
 
