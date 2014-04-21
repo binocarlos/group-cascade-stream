@@ -1,6 +1,6 @@
 {
   "name": "group-cascade-stream",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A cascade stream that groups created streams by a chunk id",
   "main": "index.js",
   "scripts": {
