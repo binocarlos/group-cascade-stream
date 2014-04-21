@@ -30,6 +30,6 @@
     "through2": "^0.4.1"
   },
   "dependencies": {
-    "cascade-stream": "^0.0.4"
+    "cascade-stream": "^0.1.0"
   }
 }
