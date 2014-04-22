@@ -54,7 +54,6 @@ test('cascade streams from single input in object mode', function(t) {
   source.pipe(pipeline).pipe(sink)
 })
 
-
 test('external add', function(t) {
 
   var coeffs = {

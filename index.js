@@ -10,22 +10,25 @@ var factory = module.exports = function(opts, idfn, streamfn){
 
 	var streams = {}
 
-	return cascade(opts, function(chunk, add, cb){
-		var id = idfn(chunk)		
-		if(!id){
-			return cb()
-		}
+	return cascade(opts, function(chunk, add, next){
+		var id = idfn(chunk)
 		if(!streams[id]){
-			streams[id] = streamfn(id)
-			if(streams[id]){
-				add(streams[id])
+			var stream = streamfn(id)
+			if(stream){
+				streams[id] = stream
+				add(stream)
 			}
 		}
 		var stream = streams[id]
 		if(stream){
 			stream.write(chunk)
 		}
-		cb()
+		next()
+	}, function(){
+		Object.keys(streams || {}).forEach(function(k){
+			streams[k].push()
+			streams[k].end()
+		})
 	})
 }
 

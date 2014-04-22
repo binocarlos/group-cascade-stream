@@ -30,6 +30,7 @@
     "through2": "^0.4.1"
   },
   "dependencies": {
-    "cascade-stream": "^0.1.0"
+    "cascade-stream": "^0.2.0",
+    "reduplexer": "0.0.2"
   }
 }
