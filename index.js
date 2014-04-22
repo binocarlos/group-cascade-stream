@@ -26,8 +26,9 @@ var factory = module.exports = function(opts, idfn, streamfn){
 		next()
 	}, function(){
 		Object.keys(streams || {}).forEach(function(k){
-			streams[k].push()
+			
 			streams[k].end()
+			streams[k].push()
 		})
 	})
 }

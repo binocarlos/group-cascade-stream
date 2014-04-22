@@ -18,10 +18,15 @@ test('cascade streams from single input in object mode', function(t) {
   function createLetterStream(letter){
     var coeff = coeffs[letter]
     return through.obj(function(chunk, enc, cb){
+      console.log('-------------------------------------------');
+      console.log('letter: ' + letter);
+      console.dir(chunk);
       var num = parseFloat(chunk.replace(/\D/g, ''))
       this.push(num * coeff)
       cb()
     }, function(){
+      console.log('-------------------------------------------');
+      console.log('letter end');
       ends++
     })
   }
@@ -53,7 +58,7 @@ test('cascade streams from single input in object mode', function(t) {
 
   source.pipe(pipeline).pipe(sink)
 })
-
+/*
 test('external add', function(t) {
 
   var coeffs = {
@@ -199,4 +204,4 @@ test('with no streams', function(t) {
   })
 
   source.pipe(pipeline).pipe(sink)
-})
+})*/
